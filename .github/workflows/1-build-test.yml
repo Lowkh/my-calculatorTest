@@ -4,6 +4,10 @@ on:
   push:
     branches: [develop]
 
+# Allow creating releases with GITHUB_TOKEN
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build and Test
@@ -25,10 +29,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: 📦 Install package (step 2)
+      - name: 📦 Install package
         run: |
           pip install -e .
-          
+
       - name: ✅ Run Tests
         run: |
           pytest tests/ -v --cov=src --cov-report=html --cov-report=term
