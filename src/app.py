@@ -5,6 +5,7 @@ class Calculator:
     def add(a, b):
         """Add two numbers."""
         return a + b
+        
     
     @staticmethod
     def subtract(a, b):
